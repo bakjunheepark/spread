@@ -58,6 +58,16 @@ body{
 	line-height: 1.65;
 }
 
+/* center on page*/
+
+header,
+nav,
+main,
+footer {
+	max-width: 62rem;
+	margin-inline: auto;
+}
+
 h1{
 	font-family: var(--display);
 	font-size: x-large;
