@@ -14,8 +14,8 @@
 	--height: 2.5rem;
 
 	/* font sizes */
-	--h1:calc;
-	--h2:;
+	--h1:4rem;
+	--h2:2rem;
 	--body: 1rem;
 
 }
@@ -68,18 +68,28 @@ footer {
 	margin-inline: auto;
 }
 
+header{
+text-align: center;
+}
+
+
 h1{
-	font-family: var(--display);
-	font-size: x-large;
+
+	font-family: var(--text);
+	font-size: var(--h1);
 }
 
 h2{
-	font-family: var(--display);
-	font-size: large;
+	font-family: var(--text);
+	font-size: var(--h2);
 	background-color: var(--sienna);
 	border: var(--ink), 0.1rem, solid ;
 	padding-block: 1rem;
 }
 
+#s1 { background: var(--blue); }
+#s2 { background: var(--pear); }
+#s3 { background: var(--rose); }
 
-}
+
+
