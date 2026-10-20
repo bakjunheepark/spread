@@ -13,34 +13,38 @@
 	/* sizes */
 	--height: 2.5rem;
 
-	
+	/* font sizes */
+	--h1:calc;
+	--h2:;
+	--body: 1rem;
+
 }
 
 /* fonts */
 
 @font-face {
 	font-family: "BootzyTM";
-	src: url("Fonts/BootzyTM.woff2") format("woff2");
+	src: url("fonts/BootzyTM.woff2") format("woff2");
 	font-display: swap;
 }
 
 @font-face {
 	font-family: 'Neue Montreal';
-	src: url('Fonts/NeueMontreal-Regular.otf') format('otf');
+	src: url('fonts/NeueMontreal-Regular.otf') format('opentype');
 	font-weight: 400;
 	font-display: swap;
 }
 
 @font-face {
 	font-family: 'Neue Montreal';
-	src: url('Fonts/NeueMontreal-Bold.otf') format('otf');
+	src: url('fonts/NeueMontreal-Bold.otf') format('opentype');
 	font-weight: 700;
 	font-display: swap;
 }
 
 @font-face {
 	font-family: 'Neue Montreal';
-	src: url('Fonts/NeueMontreal-Light.otf') format('otf');
+	src: url('fonts/NeueMontreal-Light.otf') format('opentype');
 	font-weight: 300;
 	font-display: swap;
 }
