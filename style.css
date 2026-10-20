@@ -1,0 +1,44 @@
+:root {
+	/* colors */
+	--rose: #F9B6B8;
+	--latte: #fbfaeb;
+	--ink: #8B162B;
+	--sienna: #F37521;
+	--blue: #BAD2E8;
+	--pear: #C6B63B;
+
+	--display: 'BootzyTM', serif;                        /* title only */
+	--text: 'Neue Montreal', sans-serif; /* everything else */
+
+	/* sizes */
+	--height 2.5rem;
+}
+
+/* fonts */
+
+@font-face {
+	font-family: "BootzyTM";
+	src: url("Fonts/BootzyTM.woff2") format("woff2");
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Neue Montreal';
+	src: url('Fonts/NeueMontreal-Regular.otf') format('otf');
+	font-weight: 400;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Neue Montreal';
+	src: url('Fonts/NeueMontreal-Bold.otf') format('otf');
+	font-weight: 700;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Neue Montreal';
+	src: url('Fonts/NeueMontreal-Light.otf') format('otf');
+	font-weight: 300;
+	font-display: swap;
+}
