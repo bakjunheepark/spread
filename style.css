@@ -7,7 +7,7 @@
 	--blue: #BAD2E8;
 	--pear: #C6B63B;
 
-	--display: 'BootzyTM', serif;                        /* title only */
+	--display: 'Erode-SemiboldItalic', serif;                        /* title only */
 	--text: 'Neue Montreal', sans-serif; /* everything else */
 
 	/* sizes */
@@ -19,7 +19,6 @@
 	--body: 1rem;
 
 	--space: 1.5rem;
-
 }
 
 /* fonts */
@@ -100,8 +99,9 @@ text-align: center;
 
 
 h1{
-
-	font-family: var(--text);
+	font-family: Erode-SemiboldItalic;
+	line-height: 1;
+	padding-inline: var(--space);
 	font-size: var(--h1);
 }
 
