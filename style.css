@@ -53,20 +53,21 @@ nav{
 	display: flex;
 	gap: 1.5rem;
 	margin: 1.5rem auto 2.5rem;
-}
+	padding-block-start: 6rem;
 
-nav a{
-	flex: 1;
-	display: flex;
-	flex-direction: column;
-	gap: 2rem;
-	min-height: 9rem;
-	padding: 1rem 1.1rem;
-	text-decoration: none;
-}
+	a{
+		flex: 1;
+		display: flex;
+		flex-direction: column;
+		gap: 2rem;
+		min-height: 9rem;
+		padding: 1rem 1.1rem;
+		text-decoration: none;
+	}
 
-nav a:hover span:last-child{
-	text-decoration: underline;
+	a:hover span:last-child{
+		text-decoration: underline;
+	}
 }
 
 nav a:nth-child(1) {background: var(--sienna);}
@@ -113,11 +114,12 @@ h2{
 	border-left: 0;
 	border-right: 0;
 	padding-block: 1rem;
-}
 
-h2 a span{
+	a span{
 	margin-right: 1rem;
 }
+}
+
 
 #s1 { background: var(--blue); }
 #s2 { background: var(--pear); }
