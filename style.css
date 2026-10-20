@@ -72,3 +72,14 @@ h1{
 	font-family: var(--display);
 	font-size: x-large;
 }
+
+h2{
+	font-family: var(--display);
+	font-size: large;
+	background-color: var(--sienna);
+	border: var(--ink), 0.1rem, solid ;
+	padding-block: 1rem;
+}
+
+
+}
