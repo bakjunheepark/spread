@@ -18,7 +18,7 @@
 	--h2:2rem;
 	--body: 1rem;
 
-	--gap: 1.5rem;
+	--space: 1.5rem;
 
 }
 
@@ -106,12 +106,17 @@ h1{
 }
 
 h2{
+	padding-inline: var(--space);
 	font-family: var(--text);
 	font-size: var(--h2);
 	background-color: var(--sienna);
 	border-left: 0;
 	border-right: 0;
 	padding-block: 1rem;
+}
+
+h2 a span{
+	margin-right: 1rem;
 }
 
 #s1 { background: var(--blue); }
