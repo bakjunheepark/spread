@@ -1,7 +1,7 @@
 :root {
 	/* colors */
-	--rose: #F9B6B8;
-	--latte: #fbfaeb;
+	--pink: #F9B6B8;
+	--cream: #fbfaeb;
 	--ink: #8B162B;
 	--sienna: #F37521;
 	--blue: #BAD2E8;
@@ -12,13 +12,12 @@
 
 	/* sizes */
 	--height: 2.5rem;
+	--space: 1.5rem;
 
 	/* font sizes */
-	--h1:4rem;
+	--h1:6rem;
 	--h2:2rem;
 	--body: 1rem;
-
-	--space: 1.5rem;
 }
 
 /* fonts */
@@ -49,17 +48,18 @@
 	font-weight: 300;
 	font-display: swap;
 }
+
 nav{
 	display: flex;
-	gap: 1.5rem;
-	margin: 1.5rem auto 2.5rem;
+	gap: var(--space);
+	margin: var(--space) auto 2.5rem;
 	padding-block-start: 6rem;
 
 	a{
 		flex: 1;
 		display: flex;
 		flex-direction: column;
-		gap: 2rem;
+		gap: calc(1.5*var(--space));
 		min-height: 9rem;
 		padding: 1rem 1.1rem;
 		text-decoration: none;
@@ -73,11 +73,11 @@ nav{
 nav a:nth-child(1) {background: var(--sienna);}
 nav a:nth-child(2) {background: var(--blue);}
 nav a:nth-child(3) {background: var(--pear);}
-nav a:nth-child(4) {background: var(--rose);}
+nav a:nth-child(4) {background: var(--pink);}
 
 body{
 	margin: 1.5rem auto 2.5rem;
-	background: var(--latte);
+	background: var(--cream);
 	color: var(--ink);
 	font-family: var(--text);
 	font-size: var(--body);
@@ -94,17 +94,41 @@ footer {
 	margin-inline: auto;
 }
 
+/* Header ----------------------------------------------- */
+
 header{
 text-align: center;
 }
 
+header > p:first-child {
+	padding-block: 0.625rem;
+	font-size: 0.75rem;
+	letter-spacing: 0.1em;
+	text-transform: uppercase;
+}
+
+h1 ~ p {
+	max-width: 62rem;
+	font-size: var(--h2);
+	font-family: NeueMontreal-Medium;
+	line-height: 1;
+}
+
+h1 + p {
+	margin-block-start: 3rem;
+}
 
 h1{
 	font-family: Erode-SemiboldItalic;
 	line-height: 1;
 	padding-inline: var(--space);
 	font-size: var(--h1);
+	span{
+		color: var(--pink);
+	}
 }
+
+/* Reading ----------------------------------------------- */
 
 h2{
 	padding-inline: var(--space);
@@ -120,10 +144,66 @@ h2{
 }
 }
 
+section details {
+	padding-block-end: 1.75rem;
+}
+
+section details p {
+	max-inline-size: 40rem;
+	margin-block-end: 1em;
+}
+
+/* show − when open, + when closed */
+
+details[open] summary span:last-child,
+details:not([open]) summary span:first-child {
+	display: none;
+}
 
 #s1 { background: var(--blue); }
 #s2 { background: var(--pear); }
-#s3 { background: var(--rose); }
+#s3 { background: var(--pink); }
 
+/* References ------------------------------------------ */
 
+main > details {
+	padding-block: var(--space);
 
+	summary {
+		font-size: var(--h2);
+		font-weight: 700;
+		letter-spacing: 0.1em;
+		text-transform: uppercase;
+	}
+
+	summary:hover {
+		text-decoration: underline;
+	}
+
+	ul {
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+		margin-block: var(--space);
+		padding-inline-start: 0rem;
+	}
+
+	li:hover {
+		background-color: var(--pink);
+	}
+}
+
+/* Footer ---------------------------------------------- */
+
+footer {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	align-items: center;
+	gap: 0.625rem;
+	margin-block-start: var(--space);
+	padding-block: 0.75rem;
+	border-block-start: 0.125rem solid var(--ink);
+	font-size: 0.75rem;
+	text-transform: uppercase;
+}
