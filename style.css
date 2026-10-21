@@ -13,10 +13,11 @@
 	/* sizes */
 	--height: 2.5rem;
 	--space: 1.5rem;
+	--nav-height: 10rem;
 
 	/* font sizes */
 	--h1:6rem;
-	--h2:2rem;
+	--h2:1.5rem;
 	--body: 1rem;
 }
 
@@ -51,9 +52,11 @@
 
 nav{
 	display: flex;
-	gap: var(--space);
+	height:
 	margin: var(--space) auto 2.5rem;
 	padding-block-start: 6rem;
+	position: sticky;
+	top:0;
 
 	a{
 		flex: 1;
@@ -69,6 +72,7 @@ nav{
 		text-decoration: underline;
 	}
 }
+
 
 nav a:nth-child(1) {background: var(--sienna);}
 nav a:nth-child(2) {background: var(--blue);}
@@ -128,6 +132,8 @@ h1{
 	}
 }
 
+
+
 /* Reading ----------------------------------------------- */
 
 h2{
@@ -135,14 +141,15 @@ h2{
 	font-family: var(--text);
 	font-size: var(--h2);
 	background-color: var(--sienna);
-	border-left: 0;
-	border-right: 0;
-	padding-block: 1rem;
+	padding-block: 0.3rem;
+	position:sticky;
+	z-index: 10;
 
 	a span{
 	margin-right: 1rem;
 }
 }
+
 
 section details {
 	padding-block-end: 1.75rem;
