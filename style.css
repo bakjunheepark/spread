@@ -99,6 +99,18 @@ footer {
 	margin-inline: auto;
 }
 
+/* Text style ----------------------------------------------- */
+
+a :hover{
+	color: #F37521;
+}
+
+main section p a{
+	text-decoration: underline;
+}
+
+
+
 /* Header ----------------------------------------------- */
 
 header{
