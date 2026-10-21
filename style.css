@@ -153,9 +153,10 @@ h2{
 	font-family: var(--text);
 	font-size: var(--h2);
 	background-color: var(--sienna);
-	padding-block: 0.3rem;
-	position:sticky;
-	z-index: 10;
+	padding-block: 0.5rem;
+    position:sticky;
+    top:9rem;
+    z-index: 5;
 
 	a span{
 	margin-right: 1rem;
