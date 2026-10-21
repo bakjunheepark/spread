@@ -38,6 +38,13 @@
 
 @font-face {
 	font-family: 'Neue Montreal';
+	src: url('fonts/NeueMontreal-Medium.otf') format('opentype');
+	font-weight: 500;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Neue Montreal';
 	src: url('fonts/NeueMontreal-Bold.otf') format('opentype');
 	font-weight: 700;
 	font-display: swap;
@@ -127,7 +134,8 @@ header > p:first-child {
 h1 ~ p {
 	max-width: 62rem;
 	font-size: var(--h2);
-	font-family: NeueMontreal-Medium;
+	font-family: Neue Montreal;
+	font-weight: 500;
 	line-height: 1;
 }
 
