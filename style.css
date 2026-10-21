@@ -7,7 +7,7 @@
 	--blue: #BAD2E8;
 	--pear: #C6B63B;
 
-	--display: 'Erode-SemiboldItalic', serif;                        /* title only */
+	--display: 'Erode-Medium', serif;                        /* title only */
 	--text: 'Neue Montreal', sans-serif; /* everything else */
 
 	/* sizes */
@@ -16,7 +16,7 @@
 	--nav-height: 10rem;
 
 	/* font sizes */
-	--h1:6rem;
+	--h1:5rem;
 	--h2:1.5rem;
 	--body: 1rem;
 }
@@ -53,16 +53,17 @@
 nav{
 	display: flex;
 	height:
-	margin: var(--space) auto 2.5rem;
-	padding-block-start: 6rem;
+	margin: 1rem auto 1rem;
+	padding-block-start: 0rem;
 	position: sticky;
+	inset-block-start: 0;
 	top:0;
 
 	a{
 		flex: 1;
 		display: flex;
 		flex-direction: column;
-		gap: calc(1.5*var(--space));
+		gap: var(--space));
 		min-height: 9rem;
 		padding: 1rem 1.1rem;
 		text-decoration: none;
@@ -123,9 +124,8 @@ h1 + p {
 }
 
 h1{
-	font-family: Erode-SemiboldItalic;
+	font-family: var(--display);
 	line-height: 1;
-	padding-inline: var(--space);
 	font-size: var(--h1);
 	span{
 		color: var(--pink);
