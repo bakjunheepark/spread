@@ -70,7 +70,7 @@ nav{
 		flex: 1;
 		display: flex;
 		flex-direction: column;
-		gap: var(--space));
+		gap: var(--space);
 		min-block-size: var(--nav-height);
 		padding: 1rem 1.1rem;
 		font-family:var(--text);
@@ -109,8 +109,8 @@ footer {
 
 /* Text style ----------------------------------------------- */
 
-a :hover{
-	color: #F37521;
+a:hover{
+	color:#F37521;
 }
 
 main section p a{
@@ -217,6 +217,24 @@ details:not([open]) summary span:first-child {
 #s1 { background: var(--blue); }
 #s2 { background: var(--pear); }
 #s3 { background: var(--pink); }
+
+/* Quotes ----------------------------------------------*/
+
+
+blockquote{
+	font-family:var(--display);
+	font-size: var(--h2);
+	border: 0.2rem solid var(--ink);
+	color: var(--ink);
+	text-align: center;
+	padding-inline: 2rem;
+	padding-block-start: 1rem;
+	margin-block: 4rem;
+	margin-inline: auto;          /* centers the box itself */
+	max-width: 36rem;
+}
+
+
 
 /* References ------------------------------------------ */
 
