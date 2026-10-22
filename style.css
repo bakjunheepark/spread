@@ -13,7 +13,7 @@
 	/* sizes */
 	--height: 2.5rem;
 	--space: 1.5rem;
-	--nav-height:4rem;
+	--nav-height:3rem;
 
 	/* font sizes */
 	--h1:5rem;
@@ -72,7 +72,7 @@ nav{
 		flex-direction: column;
 		gap: var(--space);
 		min-block-size: var(--nav-height);
-		padding: 1rem 1.1rem;
+		padding: 1rem 1rem;
 		font-family:var(--text);
 		font-weight:500;
 		font-size:calc(0.7*var(--h2));
@@ -121,7 +121,7 @@ main section p a{
 
 header{
 	text-align: center;
-	padding-block-start: 3rem;
+	padding-block-start: 4rem;
 }
 
 header > p:first-child {
