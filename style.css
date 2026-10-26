@@ -19,8 +19,8 @@
 	--square:0.625rem;
 
 	/* font sizes */
-	--h1:6rem;
-	--h2:2rem;
+	--h1:5rem;
+	--h2:1.5rem;
 	--body: 1.25rem;
 }
 
@@ -71,6 +71,11 @@ body{
 	font-size: var(--body);
 	line-height: 1.65;
 }
+
+main > section:nth-of-type(1) { --sec: var(--sienna); }
+main > section:nth-of-type(2) { --sec: var(--blue); }
+main > section:nth-of-type(3) { --sec: var(--pear); }
+main > section:nth-of-type(4) { --sec: var(--pink); }
 
 nav{
 	display: flex;
@@ -199,7 +204,7 @@ h2{
 	font-family: var(--text);
 	font-weight: 500;
 	font-size: var(--h2);
-	background-color: var(--sienna);
+	background-color: var(--sec);
 	padding-block: 0.5rem;
     position:sticky;
     top:calc(1.2*var(--nav-height));
@@ -232,10 +237,6 @@ details:not([open]) summary span:first-child {
 	display: none;
 }
 
-#s1 { background: var(--blue); }
-#s2 { background: var(--pear); }
-#s3 { background: var(--pink); }
-
 /* Quotes ----------------------------------------------*/
 
 
@@ -250,6 +251,7 @@ blockquote{
 	margin-block: 3rem;
 	margin-inline: auto 0;          /* centers the box itself */
 	max-width: 20rem;
+	font-weight:700;
 }
 
 
