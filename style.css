@@ -7,8 +7,8 @@
 	--blue: #BAD2E8;
 	--pear: #C6B63B;
 
-	--display: 'Erode-Medium', serif;                        /* title only */
-	--text: 'Neue Montreal', sans-serif; /* everything else */
+	--display:'Neue Montreal','Helvetica Neue', Arial, sans-serif ;                        /* title only */
+	--text: 'Neue Montreal','Helvetica Neue', Arial, sans-serif; /* everything else */
 
 	/* sizes */
 	--height: 2.5rem;
@@ -144,6 +144,7 @@ h1 ~ p {
 	font-family: Neue Montreal;
 	font-weight: 500;
 	line-height: 1;
+
 }
 
 h1 + p {
@@ -159,10 +160,13 @@ h1{
 	font-size: clamp(2rem, 8vw, 3.5rem);
 	line-height: 1;
 	font-size: var(--h1);
+	letter-spacing: -0.03em;
+	font-weight: 800;
 	span{
 		color: var(--pink);
 	}
 }
+
 
 /* web */
 
