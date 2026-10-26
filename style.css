@@ -14,11 +14,14 @@
 	--height: 2.5rem;
 	--space: 1.5rem;
 	--nav-height:3rem;
+	--gutter: 1.25rem;
+	--measure:38rem;
+	--square:0.625rem;
 
 	/* font sizes */
-	--h1:5rem;
-	--h2:1.5rem;
-	--body: 1rem;
+	--h1:6rem;
+	--h2:2rem;
+	--body: 1.25rem;
 }
 
 /* fonts */
@@ -51,12 +54,23 @@
 	font-display: swap;
 }
 
+/* base */
+*, *::before, *::after { box-sizing: border-box; }
 
+/*scrolling html rule*/
 html {
 	scroll-behavior: smooth;
-	scroll-padding-top: var(--nav-h);
+	scroll-padding-top: var(--nav-height);
 }
 
+body{
+	margin: 0rem 0rem 2.5rem;
+	background: var(--cream);
+	color: var(--ink);
+	font-family: var(--text);
+	font-size: var(--body);
+	line-height: 1.65;
+}
 
 nav{
 	display: flex;
@@ -97,14 +111,7 @@ nav a:nth-child(2) {background: var(--blue);}
 nav a:nth-child(3) {background: var(--pear);}
 nav a:nth-child(4) {background: var(--pink);}
 
-body{
-	margin: 0rem 0rem 2.5rem;
-	background: var(--cream);
-	color: var(--ink);
-	font-family: var(--text);
-	font-size: var(--body);
-	line-height: 1.65;
-}
+
 
 /* center on page*/
 
