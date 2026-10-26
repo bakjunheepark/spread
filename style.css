@@ -1,3 +1,4 @@
+/* DESIGN SYSTEM: VARIABLES */
 :root {
 	/* colors */
 	--pink: #F9B6B8;
@@ -7,6 +8,7 @@
 	--blue: #BAD2E8;
 	--pear: #C6B63B;
 
+	/*fonts styles*/
 	--display:'Neue Montreal','Helvetica Neue', Arial, sans-serif ;                        /* title only */
 	--text: 'Neue Montreal','Helvetica Neue', Arial, sans-serif; /* everything else */
 
@@ -54,7 +56,7 @@
 	font-display: swap;
 }
 
-/* base */
+/* base rule */
 *, *::before, *::after { box-sizing: border-box; }
 
 /*scrolling html rule*/
@@ -72,17 +74,19 @@ body{
 	line-height: 1.65;
 }
 
+/* ------ASSIGNING COLORS TO SECTIONS --------*/
 main > section:nth-of-type(1) { --sec: var(--sienna); }
 main > section:nth-of-type(2) { --sec: var(--blue); }
 main > section:nth-of-type(3) { --sec: var(--pear); }
 main > section:nth-of-type(4) { --sec: var(--pink); }
 
+/* -------------NAV---------------*/
 nav{
 	display: flex;
-	margin: 0;
 	position: sticky;
-	inset-block-start: 0;
 	top:0;
+	height: var(--nav-height)
+	z-index:10; /*controls which element sits on top when two elements overlap*/
 
 	a{
 		flex: 1;
