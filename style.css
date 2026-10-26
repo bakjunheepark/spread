@@ -102,13 +102,6 @@ nav{
 		overflow: hidden;
 		white-space: nowrap;
 		transition: flex-grow 0.4s ease;   /* animates the width change */
-
-		@media (width > 860px) {
-			flex: 1;
-			gap: var(--space);
-			min-block-size: var(--nav-height);
-			padding: 1rem;
-			}
 	}
 
 	a:hover,
@@ -123,6 +116,16 @@ nav{
 	a:hover span:last-child{
 		text-decoration: underline;
 	}
+
+	@media (width > 860px) {
+			a{
+				gap:var(--space);
+				padding:1rem;
+			}
+			a span:last-child {
+				display: inline; /*shows titles on desktop*/
+			}
+			}
 
 	}
 
