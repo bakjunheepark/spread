@@ -111,27 +111,33 @@ nav{
 
 	a span:last-child {
 		display: none; /*phones: shows numbers only*/
+		text-overflow: ellipsis; /* adds "…" if the title doesn't fit */
+		overflow: hidden;
 	}
 
-	a:hover span:last-child{
-		text-decoration: underline;
+	a:hover span:last-child,
+	a:focus span:last-child {
+		display: inline; /* show the title on the grown tab */
 	}
 
 	@media (width > 860px) {
-			a{
-				gap:var(--space);
-				padding:1rem;
-			}
-			a span:last-child {
-				display: inline; /*shows titles on desktop*/
-			}
-			}
+		height: auto;               /* let the bar grow to fit two-line titles */
+		min-height: var(--nav-height);
 
+		a {
+			flex-direction: row-reverse;    /* title left, number right */
+			justify-content: space-between;
+			align-items: flex-start;
+			gap: var(--space);
+			padding: 1rem;
+			white-space: normal;            /* titles can wrap */
+		}
+		a span:last-child {
+			display: inline; /* shows titles on desktop */
+		}
 	}
 
-
-
-
+	}
 
 nav a:nth-child(1) {background: var(--sienna);}
 nav a:nth-child(2) {background: var(--blue);}
@@ -149,10 +155,6 @@ footer {
 }
 
 /* Text style ----------------------------------------------- */
-
-a:hover{
-	color:#F37521;
-}
 
 main section p a{
 	text-decoration: underline;
