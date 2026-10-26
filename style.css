@@ -85,34 +85,49 @@ nav{
 	display: flex;
 	position: sticky;
 	top:0;
-	height: var(--nav-height)
+	height: var(--nav-height);
 	z-index:10; /*controls which element sits on top when two elements overlap*/
 
 	a{
 		flex: 1;
 		display: flex;
-		flex-direction: column;
-		gap: calc(0.5 * var(--space));
-		min-block-size: var(--nav-height);
-		padding: 1rem 1rem;
+		align-items: center;
+		gap: 0.4rem;
+		padding: 0 0.6rem;
 		font-family:var(--text);
 		font-weight:500;
 		font-size:calc(0.7*var(--h2));
 		text-decoration: none;
+		color: var(--ink);
+		overflow: hidden;
+		white-space: nowrap;
+		transition: flex-grow 0.4s ease;   /* animates the width change */
 
-			@media (width > 860px) {
+		@media (width > 860px) {
 			flex: 1;
 			gap: var(--space);
 			min-block-size: var(--nav-height);
 			padding: 1rem;
 			}
+	}
 
+	a:hover,
+	a:focus {
+		flex-grow: 3; /*tab grows when hovered or tapped*/
+	}
+
+	a span:last-child {
+		display: none; /*phones: shows numbers only*/
 	}
 
 	a:hover span:last-child{
 		text-decoration: underline;
 	}
-}
+
+	}
+
+
+
 
 
 nav a:nth-child(1) {background: var(--sienna);}
