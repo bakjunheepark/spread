@@ -300,18 +300,56 @@ section details strong {
 
 /* Quotes ----------------------------------------------*/
 
-
-blockquote{
-	font-family:var(--display);
-	font-size: var(--h2);
-	color: var(--cream);
-	text-align: left;
-	margin-block: 3rem;
-	margin-inline: auto 0;          /* centers the box itself */
-	font-weight:700;
-	background-color: var(--sec);
-	padding-block: 3rem;
+section details blockquote {
+	display: grid;
+	grid-template-columns: 1fr 3rem;     /* big block | squares */
+	grid-template-rows: 2fr 1fr;         /* tall square | short square */
+	gap: 0.6rem;
+	margin-block: 4rem;
 }
+
+/* the big block */
+section details blockquote p {
+	grid-column: 1;
+	grid-row: 1 / -1;                    /* runs the full height */
+	max-inline-size: none;
+	margin: 0;
+	padding: 1.5rem 1.25rem;
+	background-color: var(--sec);
+	color: var(--cream);
+	font-family: var(--display);
+	font-size: clamp(1.4rem, 3.2vw, 1.9rem);
+	font-weight: 700;
+	line-height: 1.15;
+}
+
+/* the two squares */
+section details blockquote::before,
+section details blockquote::after {
+	content: "";
+	grid-column: 2;
+}
+section details blockquote::before { grid-row: 1; }   /* tall square */
+section details blockquote::after  { grid-row: 2; }   /* short square */
+
+/* square colors: first block gets two colors, second block gets one plus ink */
+main > section:nth-of-type(1) blockquote:nth-of-type(odd)::before  { background-color: var(--blue); }
+main > section:nth-of-type(1) blockquote:nth-of-type(odd)::after   { background-color: var(--pink); }
+main > section:nth-of-type(1) blockquote:nth-of-type(even)::before { background-color: var(--pear); }
+
+main > section:nth-of-type(2) blockquote:nth-of-type(odd)::before  { background-color: var(--pear); }
+main > section:nth-of-type(2) blockquote:nth-of-type(odd)::after   { background-color: var(--sienna); }
+
+main > section:nth-of-type(3) blockquote:nth-of-type(odd)::before  { background-color: var(--pink); }
+main > section:nth-of-type(3) blockquote:nth-of-type(odd)::after   { background-color: var(--blue); }
+
+main > section:nth-of-type(4) blockquote:nth-of-type(odd)::before  { background-color: var(--sienna); }
+main > section:nth-of-type(4) blockquote:nth-of-type(odd)::after   { background-color: var(--pear); }
+main > section:nth-of-type(4) blockquote:nth-of-type(even)::before { background-color: var(--blue); }
+
+/* every second block ends with an ink square */
+main > section blockquote:nth-of-type(even)::after { background-color: var(--ink); }
+
 
 
 
