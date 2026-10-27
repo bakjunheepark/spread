@@ -58,9 +58,11 @@
 }
 
 /* base rule */
+
 *, *::before, *::after { box-sizing: border-box; }
 
 /*scrolling html rule*/
+
 html {
 	scroll-padding-top: var(--nav-height);
 }
@@ -153,11 +155,15 @@ nav a:nth-child(3) {background: var(--pear);}
 nav a:nth-child(4) {background: var(--pink);}
 
 
-/* Squares, ■ characters in the text, like periods */
-.square  { font-size: 0.6em; }
-.pear    { color: var(--pear); }
-.sienna  { color: var(--sienna); }
-.blue    { color: var(--blue); }
+/* Squares ■  */
+
+header  { position: relative; }
+
+.square { font-size: min(2rem, 5vw); line-height: 1;}
+
+.pear   { position: absolute; inset-block-start: 4rem; inset-inline-end: var(--space); font-size: 4em; color: var(--pear); }   /* next to words by aggie toppins */
+.blue   { position: absolute; inset-block-end: 0; inset-inline-start: var(--space); font-size: 2em; color: var(--blue); } /* next to subtitle */
+.sienna { position: absolute; inset-inline-end: var(--space); font-size: 1em; color: var(--sienna); } /* next to chronology */
 
 /* Text style ----------------------------------------------- */
 
@@ -185,8 +191,6 @@ header > p:first-child {
 h1 ~ p {
 	max-inline-size: 62rem;
 	font-size: clamp(1.25rem, 3vw, 1.9rem);
-	font-size: clamp(1rem, 5vw, var(--h2));
-	font-family: Neue Montreal;
 	font-weight: 500;
 	line-height: 1;
 	text-align: end;
@@ -267,8 +271,14 @@ h2{
 
 section details,
 main > details {
-	max-inline-size: 62rem;
+	max-inline-size: 70rem;
 	margin-inline: auto;
+}
+
+/* space above and below the text when a section is open */
+
+section details[open] {
+	padding-block: 5rem 5rem;
 }
 
 section details p {
@@ -287,7 +297,8 @@ details:not([open]) summary span:first-child {
 section details strong {
 	display: block;
 	margin-block: 0.9em;
-	font-size: 1.45em;
+	font-family: 'Erode-Medium';
+	font-size: 2em;
 	line-height: 1.1;
 	font-weight: 500;
 	letter-spacing: -0.01em;
