@@ -153,13 +153,11 @@ nav a:nth-child(3) {background: var(--pear);}
 nav a:nth-child(4) {background: var(--pink);}
 
 
-
-/* center on page*/
-
-header{
-	max-inline-size: 62rem;
-	margin-inline: auto;
-}
+/* Squares, ■ characters in the text, like periods */
+.square  { font-size: 0.6em; }
+.pear    { color: var(--pear); }
+.sienna  { color: var(--sienna); }
+.blue    { color: var(--blue); }
 
 /* Text style ----------------------------------------------- */
 
@@ -170,8 +168,11 @@ main section p a{
 /* Header ----------------------------------------------- */
 
 header{
-	text-align: center;
+	max-inline-size: 62rem;
+	margin-inline: auto;
+	text-align: start;
 	padding-block-start: var(--headergap);
+	padding-inline: var(--space);   /* keeps text off the edges on mobile version... */
 }
 
 header > p:first-child {
@@ -183,11 +184,13 @@ header > p:first-child {
 
 h1 ~ p {
 	max-inline-size: 62rem;
-	font-size: var(--h2);
+	font-size: clamp(1.25rem, 3vw, 1.9rem);
 	font-size: clamp(1rem, 5vw, var(--h2));
 	font-family: Neue Montreal;
-	font-weight: 700;
+	font-weight: 500;
 	line-height: 1;
+	text-align: end;
+	text-transform: lowercase;
 
 }
 
@@ -235,14 +238,6 @@ details:not([open]) summary span:first-child {
 /* web */
 
 @media (width > 500px) {
-	h1 {
-		font-size: var(--h1);
-	}
-
-	h1 ~ p {
-		font-size: var(--h2);
-	}
-
 	h1 + p {
 		margin-block-start: 3rem;
 	}
