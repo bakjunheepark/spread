@@ -62,12 +62,11 @@
 
 /*scrolling html rule*/
 html {
-	scroll-behavior: smooth;
 	scroll-padding-top: var(--nav-height);
 }
 
 body{
-	margin: 0rem 0rem 2.5rem;
+	margin: 0rem;
 	background: var(--cream);
 	color: var(--ink);
 	font-family: var(--text);
@@ -93,8 +92,8 @@ main > section:nth-of-type(4) { --sec: var(--pink); }
 nav{
 	display: flex;
 	position: sticky;
-	top:0;
-	height: var(--nav-height);
+	inset-block-start: 0;
+	block-size: var(--nav-height);
 	z-index:10; /*controls which element sits on top when two elements overlap*/
 
 	a{
@@ -130,8 +129,8 @@ nav{
 	}
 
 	@media (width > 860px) {
-		height: auto;               /* let the bar grow to fit two-line titles */
-		min-height: var(--nav-height);
+		block-size: auto;               /* let the bar grow to fit two-line titles */
+		min-block-size: var(--nav-height);
 
 		a {
 			flex-direction: column;    /* title left, number right */
@@ -157,9 +156,8 @@ nav a:nth-child(4) {background: var(--pink);}
 
 /* center on page*/
 
-header,
-footer {
-	max-width: 62rem;
+header{
+	max-inline-size: 62rem;
 	margin-inline: auto;
 }
 
@@ -184,7 +182,7 @@ header > p:first-child {
 }
 
 h1 ~ p {
-	max-width: 62rem;
+	max-inline-size: 62rem;
 	font-size: var(--h2);
 	font-size: clamp(1rem, 5vw, var(--h2));
 	font-family: Neue Montreal;
@@ -203,9 +201,8 @@ h1 + p + p {
 
 h1{
 	font-family: var(--display);
-	font-size: clamp(2rem, 8vw, 3.5rem);
+	font-size: min(var(--h1), 8vw);
 	line-height: 1;
-	font-size: var(--h1);
 	letter-spacing: -0.03em;
 	font-weight: 800;
 	span{
@@ -221,11 +218,12 @@ section {
 section summary {
     position: absolute;
     inset-block-start: 0;
-    inset-inline-end: var(--space);
+    /*inset-inline-end: calc(2*var(--space)); /* placement of + and - on the header */
+	inset-inline-end: min(calc(2*var(--space)), 4vw);
     /* padding-block: calc(var(--headergap)/2);         /* lining up + and - */
-	padding-block: 0rem;
+	padding-block: min(2rem, 3vw);
     color: var(--cream);
-    font-size: var(--h1);
+    font-size: min(calc(0.5*var(--h1)), 5vw);
 }
 
 /* show − when open, + when closed */
@@ -256,14 +254,15 @@ h2{
 	padding-inline: var(--space);
 	font-family: var(--h1);
 	font-weight: 700;
-	font-size: calc(0.5*var(--h1));
+	font-size: min(calc(0.5*var(--h1)), 5vw);
 	color: var(--cream);
 	background-color: var(--sec);
-	padding-block: 2rem;
+	padding-block: min(2rem, 3vw);
 
 	a span{
 		position: relative;     /* the number sits on the height as the title */
-		margin-right: 2rem;
+		display: inline-block; /* lets the number take a fixed width */
+		margin-inline-end: 2rem;
 		inset-block-start: -1.2em;
         font-size: 0.35em;
 		font-weight: 400;
@@ -303,7 +302,7 @@ blockquote{
 	padding-block-start:1rem;
 	margin-block: 3rem;
 	margin-inline: auto 0;          /* centers the box itself */
-	max-width: 20rem;
+	max-inline-size: 20rem;
 	font-weight:700;
 }
 
@@ -312,13 +311,14 @@ blockquote{
 /* References ------------------------------------------ */
 
 main > details {
-	padding-block: var(--space);
+	max-inline-size: none;
+	margin-inline: 0;
+	padding-block: calc(2*var(--space));
+	padding-inline-start: 4.5rem;
 
 	summary {
-		font-size: var(--h2);
+		font-size: calc(2*var(--body));
 		font-weight: 700;
-		letter-spacing: 0.1em;
-		text-transform: uppercase;
 	}
 
 	summary:hover {
@@ -326,6 +326,8 @@ main > details {
 	}
 
 	ul {
+		font-size: calc(1.5*var(--body));
+		font-weight: 500;
 		display: flex;
 		flex-direction: column;
 		gap: 0.5rem;
@@ -347,8 +349,11 @@ footer {
 	align-items: center;
 	gap: 0.625rem;
 	margin-block-start: var(--space);
-	padding-block: 0.75rem;
-	border-block-start: 0.125rem solid var(--ink);
+	padding-block: calc(2*var(--space));
+	padding-inline: 4.5rem;
+	background-color: var(--ink);
+	color: var(--cream);
 	font-size: 0.75rem;
+	letter-spacing: 0.1rem;
 	text-transform: uppercase;
 }
