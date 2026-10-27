@@ -295,15 +295,13 @@ details:not([open]) summary span:first-child {
 blockquote{
 	font-family:var(--display);
 	font-size: var(--h2);
-	border: 0.2rem solid var(--ink);
-	color: var(--ink);
-	text-align: center;
-	padding-inline: 2rem;
-	padding-block-start:1rem;
+	color: var(--cream);
+	text-align: left;
 	margin-block: 3rem;
 	margin-inline: auto 0;          /* centers the box itself */
-	max-inline-size: 20rem;
 	font-weight:700;
+	background-color: var(--sec);
+	padding-block: 3rem;
 }
 
 
