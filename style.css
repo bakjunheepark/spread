@@ -277,9 +277,8 @@ main > details {
 }
 
 section details p {
-	max-inline-size: 40rem;
-	margin-block-end: 1em;
-	margin-inline-start: 8rem; /* moves the body text to the center */
+	margin-inline: auto;            /* centers the text column */
+	padding-inline: var(--gutter);  /* keeps text off the edges on phones */
 }
 
 /* show − when open, + when closed */
