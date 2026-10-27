@@ -19,6 +19,7 @@
 	--gutter: 1.25rem;
 	--measure:38rem;
 	--square:0.625rem;
+	--headergap: 4rem;
 
 	/* font sizes */
 	--h1:5rem;
@@ -76,23 +77,19 @@ body{
 
 @media (width > 860px){
 	:root{
-		--nav-height:0px;
-		--col:clamp(15rem, 26vw, 22rem)
-}
-
-	body{
-		display:grid;
-		grid-template-columns: var(--col) minmax(0,1fr);
+		--nav-height:5rem; /* taller bar on desktop to fit number + title */
 	}
 }
 
 /* ------ASSIGNING COLORS TO SECTIONS --------*/
+
 main > section:nth-of-type(1) { --sec: var(--sienna); }
 main > section:nth-of-type(2) { --sec: var(--blue); }
 main > section:nth-of-type(3) { --sec: var(--pear); }
 main > section:nth-of-type(4) { --sec: var(--pink); }
 
 /* -------------NAV---------------*/
+
 nav{
 	display: flex;
 	position: sticky;
@@ -135,12 +132,6 @@ nav{
 	@media (width > 860px) {
 		height: auto;               /* let the bar grow to fit two-line titles */
 		min-height: var(--nav-height);
-		flex-direction:column;
-		grid-column: 1;        /* sits in the left column of the page grid */
-		grid-row: 1 / span 3;  /* runs alongside header, main and footer */
-		height: 100vh;
-		height: 100svh;
-		align-self: start;     /* needed so sticky works inside a grid */
 
 		a {
 			flex-direction: column;    /* title left, number right */
@@ -182,7 +173,7 @@ main section p a{
 
 header{
 	text-align: center;
-	padding-block-start: 4rem;
+	padding-block-start: var(--headergap);
 }
 
 header > p:first-child {
@@ -197,7 +188,7 @@ h1 ~ p {
 	font-size: var(--h2);
 	font-size: clamp(1rem, 5vw, var(--h2));
 	font-family: Neue Montreal;
-	font-weight: 500;
+	font-weight: 700;
 	line-height: 1;
 
 }
@@ -222,6 +213,26 @@ h1{
 	}
 }
 
+section {
+    position: relative;   /* so the + and − can sit on the header line */
+}
+
+/* + and − placed on the header */
+section summary {
+    position: absolute;
+    inset-block-start: 0;
+    inset-inline-end: var(--space);
+    /* padding-block: calc(var(--headergap)/2);         /* lining up + and - */
+	padding-block: 0rem;
+    color: var(--cream);
+    font-size: var(--h1);
+}
+
+/* show − when open, + when closed */
+details[open] summary span:last-child,
+details:not([open]) summary span:first-child {
+    display: none;
+}
 
 /* web */
 
@@ -243,28 +254,27 @@ h1{
 
 h2{
 	padding-inline: var(--space);
-	font-family: var(--text);
-	font-weight: 500;
-	font-size: var(--h2);
+	font-family: var(--h1);
+	font-weight: 700;
+	font-size: calc(0.5*var(--h1));
+	color: var(--cream);
 	background-color: var(--sec);
-	padding-block: 0.5rem;
-    position:sticky;
-    top:calc(1.2*var(--nav-height));
-    z-index: 5;
+	padding-block: 2rem;
 
 	a span{
-	margin-right: 1rem;
-	}
+		position: relative;     /* the number sits on the height as the title */
+		margin-right: 2rem;
+		inset-block-start: -1.2em;
+        font-size: 0.35em;
+		font-weight: 400;
+        text-decoration: underline;
+    }
 }
 
 section details,
 main > details {
 	max-inline-size: 62rem;
 	margin-inline: auto;
-}
-
-section details {
-	padding-block-end: 1.75rem;
 }
 
 section details p {
