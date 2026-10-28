@@ -161,9 +161,17 @@ header  { position: relative; }
 
 .square { font-size: min(2rem, 5vw); line-height: 1;}
 
-.pear   { position: absolute; inset-block-start: 4rem; inset-inline-end: var(--space); font-size: 4em; color: var(--pear); }   /* next to words by aggie toppins */
-.blue   { position: absolute; inset-block-end: 0; inset-inline-start: var(--space); font-size: 2em; color: var(--blue); } /* next to subtitle */
+.pear   { position: absolute; inset-block-start: (4rem, 5vw); inset-inline-end: var(--space); font-size: min(4em, 10vw); color: var(--pear); }   /* next to words by aggie toppins */
+.blue   { position: absolute; inset-block-end: 0; inset-inline-start: var(--space); font-size: min(2em, 6vw); color: var(--blue); } /* next to subtitle */
 .sienna { position: absolute; inset-inline-end: var(--space); font-size: 1em; color: var(--sienna); } /* next to chronology */
+
+/* reference squares */
+
+li .square {
+	position: static;
+	font-size: 1em;
+	margin-inline-end: 0.5em;
+}
 
 /* Text style ----------------------------------------------- */
 
@@ -278,13 +286,15 @@ main > details {
 /* space above and below the text when a section is open */
 
 section details[open] {
-	padding-block: 5rem 5rem;
+	padding-block: min(5rem, 12vw);
 }
 
 section details p {
 	margin-inline: auto;            /* centers the text column */
 	padding-inline: var(--gutter);  /* keeps text off the edges on phones */
+	margin-block-end: 1em;          /* space between paragraphs */
 }
+
 
 /* show − when open, + when closed */
 
@@ -298,7 +308,7 @@ section details strong {
 	display: block;
 	margin-block: 0.9em;
 	font-family: 'Erode-Medium';
-	font-size: 2em;
+	font-size: min(2em, 9vw);
 	line-height: 1.1;
 	font-weight: 500;
 	letter-spacing: -0.01em;
@@ -365,10 +375,10 @@ main > details {
 	max-inline-size: none;
 	margin-inline: 0;
 	padding-block: calc(2*var(--space));
-	padding-inline-start: 4.5rem;
+	padding-inline: min(4.5rem, 8vw) var(--space);   /* breathing room for mobile??? */
 
 	summary {
-		font-size: calc(2*var(--body));
+		font-size: clamp(1.5rem, 6vw, calc(2*var(--body)));
 		font-weight: 700;
 	}
 
@@ -377,7 +387,7 @@ main > details {
 	}
 
 	ul {
-		font-size: calc(1.5*var(--body));
+		font-size: clamp(1.125rem, 4.5vw, calc(1.5*var(--body)));
 		font-weight: 500;
 		display: flex;
 		flex-direction: column;
@@ -401,7 +411,7 @@ footer {
 	gap: 0.625rem;
 	margin-block-start: var(--space);
 	padding-block: calc(2*var(--space));
-	padding-inline: 4.5rem;
+	padding-inline: min(4.5rem, 8vw);
 	background-color: var(--ink);
 	color: var(--cream);
 	font-size: 0.75rem;
