@@ -103,12 +103,12 @@ nav{
 		display: flex;
 		align-items: center;
 		gap: 0.4rem;
-		padding: 0 0.6rem;
+		padding: 0 0.5rem;
 		font-family:var(--text);
-		font-weight:500;
+		font-weight:700;
 		font-size:calc(0.7*var(--h2));
 		text-decoration: none;
-		color: var(--ink);
+		color: var(--cream);
 		overflow: hidden;
 		white-space: nowrap;
 		transition: flex-grow 0.4s ease;   /* animates the width change */
@@ -159,17 +159,17 @@ nav a:nth-child(4) {background: var(--pink);}
 
 header  { position: relative; }
 
-.square { font-size: min(2rem, 5vw); line-height: 1;}
+.square { font-size: min(3rem, 8vw); line-height: 1;}
 
-.pear   { position: absolute; inset-block-start: (4rem, 5vw); inset-inline-end: var(--space); font-size: min(4em, 10vw); color: var(--pear); }   /* next to words by aggie toppins */
-.blue   { position: absolute; inset-block-end: 0; inset-inline-start: var(--space); font-size: min(2em, 6vw); color: var(--blue); } /* next to subtitle */
-.sienna { position: absolute; inset-inline-end: var(--space); font-size: 1em; color: var(--sienna); } /* next to chronology */
+.pear   { position: absolute; inset-block-start: (4rem, 5vw); inset-inline-end: var(--space); color: var(--pear); }   /* next to words by aggie toppins */
+.blue   { position: absolute; inset-block-end: calc(3*var(--headergap)); inset-inline-start: var(--space); color: var(--blue); } /* next to subtitle */
+.sienna { position: absolute; inset-inline-end: var(--space); color: var(--sienna); } /* next to chronology */
 
 /* reference squares */
 
 li .square {
 	position: static;
-	font-size: 1em;
+	font-size: 2em;
 	margin-inline-end: 0.5em;
 }
 
@@ -185,7 +185,7 @@ header{
 	max-inline-size: 62rem;
 	margin-inline: auto;
 	text-align: start;
-	padding-block-start: var(--headergap);
+	padding-block: calc(3*var(--headergap));
 	padding-inline: var(--space);   /* keeps text off the edges on mobile version... */
 }
 
@@ -208,10 +208,6 @@ h1 ~ p {
 
 h1 + p {
 	margin-block-start: 3rem;
-}
-
-h1 + p + p {
-	margin-block-end: 5rem;
 }
 
 h1{
@@ -394,6 +390,9 @@ main > details {
 		gap: 0.5rem;
 		margin-block: var(--space);
 		padding-inline-start: 0rem;
+		cite{
+			font-style: italic;
+		}
 	}
 
 	li:hover {
