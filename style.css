@@ -424,8 +424,10 @@ footer {
 @media print {
 	::details-content { content-visibility: visible; }
 
-	print-color-adjust: exact;
-	
+	* {
+		print-color-adjust: exact;
+	}
+
 	section summary {
 		display: none;
 	}
