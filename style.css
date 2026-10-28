@@ -198,12 +198,12 @@ header > p:first-child {
 
 h1 ~ p {
 	max-inline-size: 62rem;
-	font-size: clamp(1.25rem, 3vw, 1.9rem);
+	font-size: clamp(1.1rem, 4.5vw, 1.9rem);
 	font-weight: 500;
 	line-height: 1;
 	text-align: end;
 	text-transform: lowercase;
-
+	text-wrap: balance;
 }
 
 h1 + p {
