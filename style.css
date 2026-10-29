@@ -9,23 +9,28 @@
 	--pear: #C6B63B;
 
 	/*fonts styles*/
-	--display:'Neue Montreal','Helvetica Neue', Arial, sans-serif ;                        /* title only */
-	--text: 'Neue Montreal','Helvetica Neue', Arial, sans-serif; /* everything else */
+	--text: 'Neue Montreal','Helvetica Neue', Arial, sans-serif; /* all text is the same font at different weights, except strong sentences */
+	--serif: 'Erode-medium', Georgia, Serif; /* strong sentences within the body copy*/
 
 	/* sizes */
-	--height: 2.5rem;
 	--space: 1.5rem;
 	--nav-height:3rem;
 	--gutter: 1.25rem;
-	--measure:38rem;
-	--square:0.625rem;
 	--headergap: 4rem;
-	--block: calc(100% - 2*var(--gutter) - 2rem); /* width of each zigzag block (mobile: small stagger) */
+
+	/*layout*/
+	--block: calc(100% - 2*var(--gutter) - 2rem); /* width of each paragraph and quote - small stagger */
 
 	/* font sizes */
 	--h1:5rem;
 	--h2:1.5rem;
 	--body: 1.25rem;
+
+	/*desktop specific variables*/
+	@media (width > 860px) {
+		--nav-height: 5rem;  /* taller bar to fit number + title */
+		--block: 72%;        /* wider blocks with a clear left/right stagger */
+
 }
 
 /* fonts */
@@ -76,12 +81,6 @@ body{
 	font-size: var(--body);
 	line-height: 1.65;
 }
-
-@media (width > 860px){
-	:root{
-		--nav-height:5rem; /* taller bar on desktop to fit number + title */
-		--block: 72%;   /* desktop: wide blocks with a clear left/right stagger */
-	}
 }
 
 /* ------ASSIGNING COLORS TO SECTIONS --------*/
@@ -218,7 +217,6 @@ h1 + p {
 }
 
 h1{
-	font-family: var(--display);
 	font-size: min(var(--h1), 8vw);
 	line-height: 1;
 	letter-spacing: -0.03em;
@@ -256,7 +254,6 @@ details:not([open]) summary span:first-child {
 /* HEADERS = full-width color BANDS with cream sans text */
 h2{
 	padding-inline: var(--space);
-	font-family: var(--display);
 	font-weight: 700;
 	font-size: min(calc(0.5*var(--h1)), 5vw);
 	color: var(--cream);
@@ -348,8 +345,7 @@ section details blockquote p {
 	margin: 0;
 	padding: 1.5rem 1.25rem;
 	background-color: var(--sec);
-	color: var(--ink);                   /* ink, not cream: separates from h2 + better contrast */
-	font-family: var(--display);
+	color: var(--cream);                   /* cream, not high contrast but carries through the theme since all text on color blocks is that cream color*/
 	font-size: clamp(1.4rem, 3.2vw, 1.9rem);
 	font-weight: 700;
 	line-height: 1.15;
