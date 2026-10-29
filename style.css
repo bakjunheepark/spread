@@ -285,7 +285,7 @@ section details[open] {
 
 /* BODY = ink text, color only as shapes / bars / underlines */
 
-/* LAYOUT: body text stays in one calm left column, quotes break out to the right */
+/* LAYOUT: body text stays in one left column, quotes break out to the right */
 section details > p,
 section details > blockquote {
 	inline-size: var(--block);
@@ -311,7 +311,7 @@ section details strong {
 	margin-block: 1.2em;
 	padding-inline-start: 1rem;
 	border-inline-start: 0.75rem solid var(--sec);
-	font-family: 'Erode-Medium';
+	font-family: var(--serif);
 	font-size: min(1.5em, 7vw);
 	line-height: 1.15;
 	font-weight: 500;
