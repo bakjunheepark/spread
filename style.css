@@ -498,17 +498,23 @@ footer a {
 	}
 
 	nav {
-		position: static;
-		block-size: auto;      /* grows to fit two-line titles */
+		position: static;      /* prints once at the top, doesn't repeat */
 	}
 
-	nav a {
-		padding-block: 0.75rem;
-		white-space: normal;   /* long titles wrap instead of getting cut off */
+	/* a hovered or focused tab would print wide with its title: keep all four equal */
+	nav a:hover,
+	nav a:focus {
+		flex-grow: 1;
 	}
 
-	nav a span:last-child {
-		display: inline;       /* show titles, not just numbers */
+	nav a:hover span:last-child,
+	nav a:focus span:last-child {
+		display: none;
+	}
+
+	/* subtitle: smaller on paper so each sentence stays on one line */
+	h1 ~ p {
+		font-size: 1.5rem;
 	}
 
 	/* gap between header and body text */
