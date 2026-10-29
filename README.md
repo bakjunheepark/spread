@@ -3,9 +3,9 @@ This file provides context/instruction for your repository! They are written in 
 https://www.markdownguide.org/cheat-sheet/
 -->
 
-# Project 2: Spread: Can We Teach Graphic Design History Without Chronology?
+# Project 2: Spread
 
-A typographic web spread of Aggie Toppins' essay, designed and built by **Jun Park** and **Simrin Rajani** for *Typography & Interaction* (Parsons, 2026).
+A typographic web spread of Aggie Toppins' essay, Can We Teach Graphic Design History Without Chronology?, designed and built by **Jun Park** and **Simrin Rajani** for *Typography & Interaction* (Parsons, 2026).
 
 The original article was published in [AIGA Eye on Design](https://eyeondesign.aiga.org/can-we-teach-graphic-design-history-without-chronology/) on October 29, 2020.
 
@@ -23,5 +23,5 @@ The essay argues that graphic design history doesn't have to be told as a timeli
 
 HTML and CSS.
 
-Lesson from https://typography-interaction-2627.github.io/
-Help from https://claude.ai/share/0ace5fa3-f151-4210-821a-8ff8e8ef8ad3
+- Lesson from https://typography-interaction-2627.github.io/
+- Help from https://claude.ai/share/0ace5fa3-f151-4210-821a-8ff8e8ef8ad3
