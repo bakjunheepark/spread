@@ -20,6 +20,7 @@
 	--measure:38rem;
 	--square:0.625rem;
 	--headergap: 4rem;
+	--block: calc(100% - 2*var(--gutter) - 2rem); /* width of each zigzag block (mobile: small stagger) */
 
 	/* font sizes */
 	--h1:5rem;
@@ -64,7 +65,7 @@
 /*scrolling html rule*/
 
 html {
-	scroll-padding-top: var(--nav-height);
+	scroll-padding-block-start: var(--nav-height);   /* nav doesn't cover section titles after clicking a link */
 }
 
 body{
@@ -79,6 +80,7 @@ body{
 @media (width > 860px){
 	:root{
 		--nav-height:5rem; /* taller bar on desktop to fit number + title */
+		--block: 72%;   /* desktop: wide blocks with a clear left/right stagger */
 	}
 }
 
@@ -111,7 +113,6 @@ nav{
 		color: var(--cream);
 		overflow: hidden;
 		white-space: nowrap;
-		transition: flex-grow 0.4s ease;   /* animates the width change */
 	}
 
 	a:hover,
@@ -121,7 +122,6 @@ nav{
 
 	a span:last-child {
 		display: none; /*phones: shows numbers only*/
-		text-overflow: ellipsis; /* adds "…" if the title doesn't fit */
 		overflow: hidden;
 	}
 
@@ -135,18 +135,14 @@ nav{
 		min-block-size: var(--nav-height);
 
 		a {
-			flex-direction: column;    /* title left, number right */
+			flex-direction: column;    /* number on top, title below */
 			justify-content: flex-start;
 			align-items: flex-start;
 			gap: 0.25rem;
 			padding: 1rem 1.25rem;
 			white-space: normal;            /* titles can wrap */
+			}
 		}
-		a span:last-child {
-			display: inline; /* shows titles on desktop */
-		}
-	}
-
 	}
 
 nav a:nth-child(1) {background: var(--sienna);}
@@ -161,7 +157,7 @@ header  { position: relative; }
 
 .square { font-size: min(3rem, 8vw); line-height: 1;}
 
-.pear   { position: absolute; inset-block-start: (4rem, 5vw); inset-inline-end: var(--space); color: var(--pear); }   /* next to words by aggie toppins */
+.pear   { position: absolute; inset-block-start: min(4rem, 5vw); inset-inline-end: var(--space); color: var(--pear); }   /* next to words by aggie toppins */
 .blue   { position: absolute; inset-block-end: calc(3*var(--headergap)); inset-inline-start: var(--space); color: var(--blue); } /* next to subtitle */
 .sienna { position: absolute; inset-inline-end: var(--space); color: var(--sienna); } /* next to chronology */
 
@@ -175,8 +171,20 @@ li .square {
 
 /* Text style ----------------------------------------------- */
 
-main section p a{
+/* links: thick underline in the section color, fills with color on hover */
+main section p a {
+	font-weight: 500;
+	color: inherit;
 	text-decoration: underline;
+	text-decoration-color: var(--sec);
+	text-decoration-thickness: 0.18em;
+	text-underline-offset: 0.22em;
+}
+
+main section p a:hover,
+main section p a:focus {
+	background-color: var(--sec);
+	text-decoration-color: transparent;
 }
 
 /* Header ----------------------------------------------- */
@@ -203,7 +211,6 @@ h1 ~ p {
 	line-height: 1;
 	text-align: end;
 	text-transform: lowercase;
-	text-wrap: balance;
 }
 
 h1 + p {
@@ -215,7 +222,7 @@ h1{
 	font-size: min(var(--h1), 8vw);
 	line-height: 1;
 	letter-spacing: -0.03em;
-	font-weight: 800;
+	font-weight: 700;
 	span{
 		color: var(--pink);
 	}
@@ -227,14 +234,15 @@ section {
 
 /* + and − placed on the header */
 section summary {
-    position: absolute;
-    inset-block-start: 0;
-    /*inset-inline-end: calc(2*var(--space)); /* placement of + and - on the header */
-	inset-inline-end: min(calc(2*var(--space)), 4vw);
-    /* padding-block: calc(var(--headergap)/2);         /* lining up + and - */
+	position: absolute;
+	inset-block-start: 0;
+	inset-inline: 0;                                      /* covers the whole header bar */
 	padding-block: min(2rem, 3vw);
-    color: var(--cream);
-    font-size: min(calc(0.5*var(--h1)), 5vw);
+	padding-inline-end: min(calc(2*var(--space)), 4vw);  /* keeps + / − where it was */
+	text-align: end;
+	list-style: none;                                     /* hides the default triangle */
+	color: var(--cream);
+	font-size: min(calc(0.5*var(--h1)), 5vw);
 }
 
 /* show − when open, + when closed */
@@ -243,19 +251,12 @@ details:not([open]) summary span:first-child {
     display: none;
 }
 
-/* web */
-
-@media (width > 500px) {
-	h1 + p {
-		margin-block-start: 3rem;
-	}
-}
-
 /* Reading ----------------------------------------------- */
 
+/* HEADERS = full-width color BANDS with cream sans text */
 h2{
 	padding-inline: var(--space);
-	font-family: var(--h1);
+	font-family: var(--display);
 	font-weight: 700;
 	font-size: min(calc(0.5*var(--h1)), 5vw);
 	color: var(--cream);
@@ -285,32 +286,51 @@ section details[open] {
 	padding-block: min(5rem, 12vw);
 }
 
-section details p {
-	margin-inline: auto;            /* centers the text column */
-	padding-inline: var(--gutter);  /* keeps text off the edges on phones */
-	margin-block-end: 1em;          /* space between paragraphs */
+/* BODY = ink text, color only as shapes / bars / underlines */
+
+/* LAYOUT: body text stays in one calm left column, quotes break out to the right */
+section details > p,
+section details > blockquote {
+	inline-size: var(--block);
+	max-inline-size: none;
 }
 
-
-/* show − when open, + when closed */
-
-details[open] summary span:last-child,
-details:not([open]) summary span:first-child {
-	display: none;
+section details > p {
+	margin-inline: var(--gutter) auto;      /* paragraphs: always left */
 }
 
-/* big: an important sentence, on its own line */
+section details > blockquote {
+	margin-inline: auto var(--gutter);      /* quotes: always right */
+}
+
+section details > p {
+	margin-block-end: 1.5em;                /* space between paragraphs */
+}
+
+/* big: an important sentence — serif + color BAR , smaller than h2 */
+
 section details strong {
 	display: block;
-	margin-block: 0.9em;
+	margin-block: 1.2em;
+	padding-inline-start: 1rem;
+	border-inline-start: 0.75rem solid var(--sec);
 	font-family: 'Erode-Medium';
-	font-size: min(2em, 9vw);
-	line-height: 1.1;
+	font-size: min(1.5em, 7vw);
+	line-height: 1.15;
 	font-weight: 500;
 	letter-spacing: -0.01em;
 }
 
+/* highlights */
+section details mark {
+	font-weight: 500;
+	color: inherit;
+	background-color: var(--sec);
+}
+
 /* Quotes ----------------------------------------------*/
+
+/* quotes: width + right-side position set in the LAYOUT rule above */
 
 section details blockquote {
 	display: grid;
@@ -328,7 +348,7 @@ section details blockquote p {
 	margin: 0;
 	padding: 1.5rem 1.25rem;
 	background-color: var(--sec);
-	color: var(--cream);
+	color: var(--ink);                   /* ink, not cream: separates from h2 + better contrast */
 	font-family: var(--display);
 	font-size: clamp(1.4rem, 3.2vw, 1.9rem);
 	font-weight: 700;
@@ -363,15 +383,14 @@ main > section:nth-of-type(4) blockquote:nth-of-type(even)::before { background-
 main > section blockquote:nth-of-type(even)::after { background-color: var(--ink); }
 
 
-
-
 /* References ------------------------------------------ */
 
 main > details {
 	max-inline-size: none;
 	margin-inline: 0;
 	padding-block: calc(2*var(--space));
-	padding-inline: min(4.5rem, 8vw) var(--space);   /* breathing room for mobile??? */
+	padding-inline: min(4.5rem, 8vw) var(--space);
+	margin-block-start: min(6rem, 15vw);   /* gap between article and references */
 
 	summary {
 		font-size: clamp(1.5rem, 6vw, calc(2*var(--body)));
@@ -421,6 +440,15 @@ footer {
 /* Print ---------------------------------------------- */
 
 @media print {
+
+	:root {
+		--cream: #ffffff;
+		--sienna: #C8500F;
+		--blue: #2F64A8;
+		--pear: #7E7110;
+		--pink: #C9405F;
+	}
+
 	::details-content { content-visibility: visible; }
 
 	* {
@@ -433,5 +461,28 @@ footer {
 
 	nav {
 		position: static;
+	}
+
+	nav a {
+		padding-block: 0.75rem;
+		white-space: normal;   /* long titles wrap instead of getting cut off */
+	}
+
+	/* gap between header and body text */
+	section details {
+		padding-block: 3rem;
+	}
+
+	/* save ink: footer as plain text instead of a dark band */
+
+	footer {
+		background-color: transparent;
+		color: var(--ink);
+		border-block-start: 0.125rem solid var(--ink);
+	}
+
+	/* white text on the darker color blocks */
+	section details blockquote p, section details mark {
+		color: var(--cream);
 	}
 }
