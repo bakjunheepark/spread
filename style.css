@@ -197,19 +197,6 @@ header{
 }
 }
 
-h1 ~ p {
-	max-inline-size: 62rem;
-	font-size: clamp(1.1rem, 4.5vw, 1.9rem);
-	font-weight: 500;
-	line-height: 1;
-	text-align: end;
-	text-transform: lowercase;
-}
-
-h1 + p {
-	margin-block-start: 3rem;
-}
-
 h1{
 	font-size: min(var(--h1), 8vw);
 	line-height: 1;
@@ -218,6 +205,20 @@ h1{
 	span{
 		color: var(--pink);
 	}
+
+	~ p {
+	max-inline-size: 62rem;
+	font-size: clamp(1.1rem, 4.5vw, 1.9rem);
+	font-weight: 500;
+	line-height: 1;
+	text-align: end;
+	text-transform: lowercase;
+	}
+
+	+ p {
+	margin-block-start: 3rem;
+	}
+
 }
 
 section {
