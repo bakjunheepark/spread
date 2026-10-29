@@ -28,9 +28,9 @@
 
 	/*desktop specific variables*/
 	@media (width > 860px) {
-		--nav-height: 5rem;  /* taller bar to fit number + title */
+		--nav-height:3.5rem;
 		--block: 72%;        /* wider blocks with a clear left/right stagger */
-
+	}
 }
 
 /* fonts */
@@ -63,6 +63,13 @@
 	font-display: swap;
 }
 
+/* ------ASSIGNING COLORS TO SECTIONS --------*/
+
+main > section:nth-of-type(1) { --sec: var(--sienna); }
+main > section:nth-of-type(2) { --sec: var(--blue); }
+main > section:nth-of-type(3) { --sec: var(--pear); }
+main > section:nth-of-type(4) { --sec: var(--pink); }
+
 /* base rule */
 
 *, *::before, *::after { box-sizing: border-box; }
@@ -81,14 +88,9 @@ body{
 	font-size: var(--body);
 	line-height: 1.65;
 }
-}
 
-/* ------ASSIGNING COLORS TO SECTIONS --------*/
 
-main > section:nth-of-type(1) { --sec: var(--sienna); }
-main > section:nth-of-type(2) { --sec: var(--blue); }
-main > section:nth-of-type(3) { --sec: var(--pear); }
-main > section:nth-of-type(4) { --sec: var(--pink); }
+
 
 /* -------------NAV---------------*/
 
@@ -112,12 +114,12 @@ nav{
 		color: var(--cream);
 		overflow: hidden;
 		white-space: nowrap;
+		transition: flex-grow 0.4s ease;   /* animates the width change - smooth grow */
 	}
 
 	a:hover,
 	a:focus {
 		flex-grow: 3; /*tab grows when hovered or tapped*/
-		transition: flex-grow 0.4s ease;   /* animates the width change - smooth grow */
 	}
 
 	a span:last-child {
@@ -131,16 +133,9 @@ nav{
 	}
 
 	@media (width > 860px) {
-		block-size: auto;               /* let the bar grow to fit two-line titles */
-		min-block-size: var(--nav-height);
-
 		a {
-			flex-direction: column;    /* number on top, title below */
-			justify-content: flex-start;
-			align-items: flex-start;
 			gap: 0.25rem;
 			padding: 1rem 1.25rem;
-			white-space: normal;            /* titles can wrap */
 			}
 		}
 
@@ -430,7 +425,7 @@ footer {
 	padding-inline: min(4.5rem, 8vw);
 	background-color: var(--ink);
 	color: var(--cream);
-	font-size: 0.75rem;
+	font-size: 1rem;
 	letter-spacing: 0.1rem;
 	text-transform: uppercase;
 }
