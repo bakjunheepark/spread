@@ -172,7 +172,7 @@ header{
 
 /*------------TITLE & SUBTITLE------------------*/
 h1{
-	font-size: min(var(--h1), 8vw);
+	font-size: clamp(2.5rem, 11vw, var(--h1));
 	line-height: 1;
 	letter-spacing: -0.03em;
 	font-weight: 700;
