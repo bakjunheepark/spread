@@ -25,3 +25,4 @@ HTML and CSS.
 
 - Lesson from https://typography-interaction-2627.github.io/
 - Help from https://claude.ai/share/0ace5fa3-f151-4210-821a-8ff8e8ef8ad3
+- Debugging and clean-up direction from: https://claude.ai/share/fd949504-96e8-4b66-9e55-c448df62f5cc
