@@ -101,7 +101,7 @@ nav{
 		text-decoration: none;
 		color: var(--cream);
 		overflow: hidden;
-		white-space: nowrap;
+		white-space: nowrap;  /* prevent nav getting longer */
 		transition: flex-grow 0.4s ease;   /* animates the width change - smooth grow */
 	}
 
@@ -257,7 +257,7 @@ section {
 
 /* + and − placed on the header */
 section summary {
-	position: absolute;
+	position: absolute;  /* takes out of normal flow..so it can sit on top  */
 	inset-block-start: 0;
 	inset-inline: 0;                                      /* covers the whole header bar */
 	padding-block: min(2rem, 3vw);
