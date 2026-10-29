@@ -89,9 +89,6 @@ body{
 	line-height: 1.65;
 }
 
-
-
-
 /* -------------NAV---------------*/
 
 nav{
@@ -191,13 +188,13 @@ header{
 	text-align: start;
 	padding-block: calc(3*var(--headergap));
 	padding-inline: var(--space);   /* keeps text off the edges on mobile version... */
-}
 
-header > p:first-child {
+	> p:first-child {
 	padding-block: 0.625rem;
 	font-size: 0.75rem;
 	letter-spacing: 0.1em;
 	text-transform: uppercase;
+}
 }
 
 h1 ~ p {
