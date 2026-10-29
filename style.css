@@ -395,7 +395,7 @@ main > details {
 	}
 
 	ul {
-		font-size: clamp(1.125rem, 4.5vw, calc(1.5*var(--body)));
+		font-size: clamp(1.125rem, 4.5vw, var(--body));
 		font-weight: 500;
 		display: flex;
 		flex-direction: column;
