@@ -1,4 +1,4 @@
-/* DESIGN SYSTEM: VARIABLES */
+/* ----------------DESIGN SYSTEM: VARIABLES-----------------*/
 :root {
 	/* colors */
 	--pink: #F9B6B8;
@@ -80,15 +80,6 @@ html {
 	scroll-padding-block-start: var(--nav-height);   /* nav doesn't cover section titles after clicking a link */
 }
 
-body{
-	margin: 0rem;
-	background: var(--cream);
-	color: var(--ink);
-	font-family: var(--text);
-	font-size: var(--body);
-	line-height: 1.65;
-}
-
 /* -------------NAV---------------*/
 
 nav{
@@ -162,25 +153,7 @@ li .square {
 	margin-inline-end: 0.5em;
 }
 
-/* Text style ----------------------------------------------- */
-
-/* links: thick underline in the section color, fills with color on hover */
-main section p a {
-	font-weight: 500;
-	color: inherit;
-	text-decoration: underline;
-	text-decoration-color: var(--sec);
-	text-decoration-thickness: 0.18em;
-	text-underline-offset: 0.22em;
-}
-
-main section p a:hover,
-main section p a:focus {
-	background-color: var(--sec);
-	text-decoration-color: transparent;
-}
-
-/* Header ----------------------------------------------- */
+/* ----------------------HEADER------------------------- */
 
 header{
 	max-inline-size: 62rem;
@@ -197,6 +170,7 @@ header{
 }
 }
 
+/*------------TITLE & SUBTITLE------------------*/
 h1{
 	font-size: min(var(--h1), 8vw);
 	line-height: 1;
@@ -219,6 +193,17 @@ h1{
 	margin-block-start: 3rem;
 	}
 
+}
+
+/*--------------------MAIN BODY--------------------*/
+
+body{
+	margin: 0rem;
+	background: var(--cream);
+	color: var(--ink);
+	font-family: var(--text);
+	font-size: var(--body);
+	line-height: 1.65;
 }
 
 section {
@@ -244,7 +229,6 @@ details:not([open]) summary span:first-child {
     display: none;
 }
 
-/* Reading ----------------------------------------------- */
 
 /* HEADERS = full-width color BANDS with cream sans text */
 h2{
@@ -266,42 +250,45 @@ h2{
     }
 }
 
-section details,
-main > details {
+/*--------------------SECTIONS--------------------*/
+section details{
 	max-inline-size: 70rem;
 	margin-inline: auto;
-}
 
-/* space above and below the text when a section is open */
+	/* space above and below the text when a section is open */
+		&[open] {
+			padding-block: min(5rem, 12vw);
+		}
 
-section details[open] {
-	padding-block: min(5rem, 12vw);
-}
+	/* LAYOUT: body text stays in one left column, quotes break out to the right */
+	> p {
+		margin-inline: var(--gutter) auto;      /* paragraphs: always left */
+		margin-block-end: 1.5em;                /* space between paragraphs */
+		inline-size: var(--block);
+	}
+	> blockquote {
+		margin-inline: auto var(--gutter);      /* quotes: always right */
+		inline-size: var(--block);
+	}
 
-/* BODY = ink text, color only as shapes / bars / underlines */
+	/* links: thick underline in the section color, fills with color on hover */
+	p a {
+	font-weight: 500;
+	color: inherit;
+	text-decoration: underline;
+	text-decoration-color: var(--sec);
+	text-decoration-thickness: 0.18em;
+	text-underline-offset: 0.22em;
 
-/* LAYOUT: body text stays in one left column, quotes break out to the right */
-section details > p,
-section details > blockquote {
-	inline-size: var(--block);
-	max-inline-size: none;
-}
+		&:hover,
+		&:focus {
+		background-color: var(--sec);
+		text-decoration-color: transparent;
+		}
+	}
 
-section details > p {
-	margin-inline: var(--gutter) auto;      /* paragraphs: always left */
-}
-
-section details > blockquote {
-	margin-inline: auto var(--gutter);      /* quotes: always right */
-}
-
-section details > p {
-	margin-block-end: 1.5em;                /* space between paragraphs */
-}
-
-/* big: an important sentence — serif + color BAR , smaller than h2 */
-
-section details strong {
+	/* big: an important sentence — serif + color BAR , smaller than h2 */
+	strong {
 	display: block;
 	margin-block: 1.2em;
 	padding-inline-start: 1rem;
@@ -311,49 +298,47 @@ section details strong {
 	line-height: 1.15;
 	font-weight: 500;
 	letter-spacing: -0.01em;
-}
+	}
 
-/* highlights */
-section details mark {
-	font-weight: 500;
-	color: inherit;
-	background-color: var(--sec);
-}
+	/* highlights */
+	mark {
+		font-weight: 500;
+		color: inherit;
+		background-color: var(--sec);
+	}
 
-/* Quotes ----------------------------------------------*/
-
-/* quotes: width + right-side position set in the LAYOUT rule above */
-
-section details blockquote {
+	/*blockquotes*/
+	blockquote {
 	display: grid;
 	grid-template-columns: 1fr 3rem;     /* big block | squares */
 	grid-template-rows: 2fr 1fr;         /* tall square | short square */
 	gap: 0.6rem;
 	margin-block: 4rem;
-}
 
-/* the big block */
-section details blockquote p {
-	grid-column: 1;
-	grid-row: 1 / -1;                    /* runs the full height */
-	max-inline-size: none;
-	margin: 0;
-	padding: 1.5rem 1.25rem;
-	background-color: var(--sec);
-	color: var(--cream);                   /* cream, not high contrast but carries through the theme since all text on color blocks is that cream color*/
-	font-size: clamp(1.4rem, 3.2vw, 1.9rem);
-	font-weight: 700;
-	line-height: 1.15;
-}
+		/* the big block */
+		p {
+		grid-column: 1;
+		grid-row: 1 / -1;                    /* runs the full height */
+		max-inline-size: none;
+		margin: 0;
+		padding: 1.5rem 1.25rem;
+		background-color: var(--sec);
+		color: var(--cream);                   /* cream, not high contrast but carries through the theme since all text on color blocks is that cream color*/
+		font-size: clamp(1.4rem, 3.2vw, 1.9rem);
+		font-weight: 700;
+		line-height: 1.15;
+		}
 
-/* the two squares */
-section details blockquote::before,
-section details blockquote::after {
-	content: "";
-	grid-column: 2;
+		/* the small squares */
+		&::before,
+		&::after {
+			content: "";
+			grid-column: 2;
+		}
+		&::before { grid-row: 1; }   /* tall square */
+		&::after  { grid-row: 2; }   /* short square */
+	}
 }
-section details blockquote::before { grid-row: 1; }   /* tall square */
-section details blockquote::after  { grid-row: 2; }   /* short square */
 
 /* square colors: first block gets two colors, second block gets one plus ink */
 main > section:nth-of-type(1) blockquote:nth-of-type(odd)::before  { background-color: var(--blue); }
