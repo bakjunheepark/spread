@@ -3,10 +3,25 @@ This file provides context/instruction for your repository! They are written in 
 https://www.markdownguide.org/cheat-sheet/
 -->
 
-# Project 2: *Spread*
+# Project 2: Spread
 
-Demo/template for our [second projects](https://typography-interaction-2627.github.io/project/2/).
+A typographic web spread of Aggie Toppins' essay, Can We Teach Graphic Design History Without Chronology?, designed and built by **Jun Park** and **Simrin Rajani** for *Typography & Interaction* (Parsons, 2026).
 
-> **Students will now work together—with a new reading from those selected by the class in [*Manuscript*](https://typography-interaction-2627.github.io/project/1/)—to express a text deliberately and consistently across devices.**
->
-> The goal of this project is twofold: both an effective *collaboration* between partners and also a successful, *responsive* design. Each duo will sketch cooperatively and then implement a joint execution together, via pair programming. The final web page will be responsive for mobile, desktop, and print layouts.
+The original article was published in [AIGA Eye on Design](https://eyeondesign.aiga.org/can-we-teach-graphic-design-history-without-chronology/) on October 29, 2020.
+
+---
+
+## Concept
+
+The essay argues that graphic design history doesn't have to be told as a timeline. The site turns that argument into the reading experience.
+
+- The article is split into four color-coded sections that start **closed**.
+- A short coach mark invites readers to **open the color of their choice**, so there is no set start point and no forced sequence.
+- The section numbers (01–04) keep the author's original order visible, but the reader is free to ignore it.
+
+## Built with
+
+HTML and CSS.
+
+- Lesson from https://typography-interaction-2627.github.io/
+- Help from https://claude.ai/share/0ace5fa3-f151-4210-821a-8ff8e8ef8ad3
